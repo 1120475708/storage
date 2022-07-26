@@ -1,0 +1,6 @@
+ENV配置：
+
+```c++
+RABBITMQ_SERVER
+LISTEN_ADDRESS
+```

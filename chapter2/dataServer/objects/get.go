@@ -2,6 +2,7 @@ package objects
 
 import (
 	"fmt"
+	"github.com/1120475708/common/utils"
 	"github.com/gin-gonic/gin"
 	"io"
 	"log"
@@ -10,8 +11,9 @@ import (
 )
 
 func get(c *gin.Context) {
-	path, _ := os.Getwd()
-	f, err := os.Open(path + storageRoot + "/objects/" + c.Param("name"))
+	path := utils.GetPrefixPath()
+	fmt.Println(path)
+	f, err := os.Open(path + c.Param("name"))
 	if err != nil {
 		log.Println(err)
 		fmt.Fprint(c.Writer, http.StatusInternalServerError)
